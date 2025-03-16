@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Add these styles to prevent clicking on error messages */
+.error-row, .no-data-row {
+    pointer-events: none;
+}
+
+/* But allow clicking on buttons within these rows */
+.error-row button, .no-data-row button {
+    pointer-events: auto;
+}
+
+/* Style for the error message */
+.error-message {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8d7da;
+    border-radius: 4px;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    margin: 10px 0;
+}
+
+/* Style for no data message */
+.no-data-message {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+    margin: 10px 0;
+}
