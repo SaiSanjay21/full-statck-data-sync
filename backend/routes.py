@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends, Query
 from sqlalchemy.orm import Session
-from database import SessionLocal
-from models import CVE
+from backend.database import SessionLocal
+from backend.models import CVE
 from fastapi import HTTPException
 from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.templating import Jinja2Templates

@@ -6,21 +6,23 @@ let baseScoreMax = 10;
 document.getElementById("perPage").addEventListener("change", function () {
     perPage = this.value;
     currentPage = 1;
+    //fetchData();
     applyFilters();
 });
 
 document.getElementById("prevPage").addEventListener("click", function () {
     if (currentPage > 1) {
         currentPage--;
+        //fetchData();
         applyFilters();
     }
 });
 
 document.getElementById("nextPage").addEventListener("click", function () {
     currentPage++;
+    //fetchData();
     applyFilters();
 });
-
 document.getElementById("cveTableBody").addEventListener("click", function (event) {
     let row = event.target.closest("tr"); // Get the closest row
     if (!row || !row.cells[0]) return; // Ensure it's a valid row
@@ -28,15 +30,15 @@ document.getElementById("cveTableBody").addEventListener("click", function (even
     window.location.href = `http://localhost:8000/cves/${cveId}`;; // Redirect to details page
     
 });
-
 document.getElementById("baseScoreMin").addEventListener("change", function () {
     console.log("baseScoreMin: "+this.value);
     baseScoreMin = this.value;
+    //applyFilters();
 });
-
 document.getElementById("baseScoreMax").addEventListener("change", function () {
     console.log("baseScoreMax: "+this.value);
     baseScoreMax = this.value;
+   //applyFilters();
 });
 
 async function fetchData() {
@@ -63,6 +65,10 @@ async function fetchData() {
     // Disable "Next" button if there are no more results
     document.getElementById("nextPage").disabled = data.cves.length < perPage;
 }
+
+// Fetch data on page load
+fetchData();
+applyFilters();
 
 async function applyFilters() {
     const errorMessage = document.getElementById("errorMessage");
@@ -240,29 +246,3 @@ function formatDateForAPI(dateString) {
     const date = new Date(dateString);
     return date.toISOString().split('T')[0];
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Add all your event listeners here
-    document.getElementById("perPage")?.addEventListener("change", function () {
-        perPage = this.value;
-        currentPage = 1;
-        applyFilters();
-    });
-
-    document.getElementById("prevPage")?.addEventListener("click", function () {
-        if (currentPage > 1) {
-            currentPage--;
-            applyFilters();
-        }
-    });
-
-    document.getElementById("nextPage")?.addEventListener("click", function () {
-        currentPage++;
-        applyFilters();
-    });
-
-    // Add other event listeners...
-
-    // Initial load
-    applyFilters();
-});

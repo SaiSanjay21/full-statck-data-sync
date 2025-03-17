@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import uvicorn
-from routes import app
-from fetch_data import initialize_scheduler
+from backend.routes import app
+from backend.fetch_data import initialize_scheduler
 from fastapi.templating import Jinja2Templates
 from pathlib import Path
 

@@ -1,7 +1,7 @@
 import requests
 from sqlalchemy.orm import sessionmaker
-from database import engine, SessionLocal
-from models import CVE
+from backend.database import engine, SessionLocal
+from backend.models import CVE
 from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.interval import IntervalTrigger
